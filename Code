@@ -1,0 +1,16 @@
+int ledPin = 13; //Onboard LED
+int inputPin = 2; //PIR Pin
+int inputValue = 0; //Value for PIR sensor
+
+void setup(){
+  pinMode(ledPin, OUTPUT); //LED is OUTPUT
+  pinMode(inputPin, INPUT); //PIR is INPUT
+  Serial.begin(9600); //Serial COM
+}
+
+void loop(){
+  inputValue = digitalRead(inputPin); //Read the PIR INPUT
+  digitalWrite(ledPin, inputValue); //Write to LED
+  Serial.println(inputValue); //Print in the COM
+  delay(50); //Wait 2 secs and LOOP
+}
